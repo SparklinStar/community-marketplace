@@ -10,8 +10,10 @@ function WelcomeScreen(props) {
       source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text style={styles.text}>Sell What You Don't Need</Text>
+        <Image style={styles.logo} source={require("../assets/logotemp.png")} />
+        <Text style={styles.text} numberOfLines={1}>
+          Sell Your Unwanted Items!
+        </Text>
       </View>
       <View style={styles.buttoncontainer}>
         <AppButton title="Login" onPress={() => console.log("tapped")} />
@@ -41,18 +43,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
   },
   logoContainer: {
     position: "absolute",
+    width: "100%",
     top: 70,
     alignItems: "center", // main axis
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
-    paddingVertical: 20,
+    paddingVertical: 160,
+    width: "100%",
+    position: "absolute",
+    textAlign: "center",
   },
 });
 export default WelcomeScreen;
