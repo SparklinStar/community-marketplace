@@ -1,10 +1,12 @@
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import Listitem from "../components/Listitem";
 import { StatusBar } from "react-native";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const messages = [
   {
@@ -50,6 +52,10 @@ function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("helloe", item)}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => console.log(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}

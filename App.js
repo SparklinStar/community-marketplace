@@ -9,6 +9,12 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+// import AccountScreen from "./app/screens/AccountScreen";
 export default function App() {
-  return <WelcomeScreen />;
+  return (
+    <GestureHandlerRootView>
+      <MessagesScreen />
+    </GestureHandlerRootView>
+  );
 }
