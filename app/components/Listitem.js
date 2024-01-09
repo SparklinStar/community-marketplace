@@ -12,12 +12,16 @@ import colors from "../config/colors";
 import { Swipeable } from "react-native-gesture-handler";
 import ListItemDeleteAction from "./ListItemDeleteAction";
 
-const rightSwipeActions = () => {
-  return <ListItemDeleteAction />;
-};
-function Listitem({ title, subTitle, image, ImageComponent, onPress }) {
+function Listitem({
+  title,
+  subTitle,
+  image,
+  ImageComponent,
+  onPress,
+  renderRightActions,
+}) {
   return (
-    <Swipeable renderRightActions={rightSwipeActions}>
+    <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           {ImageComponent}

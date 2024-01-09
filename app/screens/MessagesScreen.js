@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
@@ -8,7 +8,7 @@ import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: "Souradip",
@@ -17,31 +17,46 @@ const messages = [
   },
   {
     id: 2,
-    title: "Souradip",
-    description: "Hey there!",
-    image: require("../assets/me.jpg"),
+    title: "Baivab",
+    description: "Building DevDotCom👷",
+    image: require("../assets/baivab.jpg"),
   },
   {
     id: 3,
-    title: "Souradip",
-    description: "Let's talk!",
-    image: require("../assets/me.jpg"),
+    title: "Subhadip",
+    description: "I'm a Game Developer, I build games (disasters)",
+    image: require("../assets/subh.jpg"),
   },
   {
     id: 4,
-    title: "Souradip",
-    description: "Free?",
-    image: require("../assets/me.jpg"),
+    title: "Subinoy",
+    description: "Develops bugs, squashes features",
+    image: require("../assets/subinoy.jpg"),
   },
   {
     id: 5,
-    title: "Souradip",
-    description: "Call mee when possible!",
-    image: require("../assets/me.jpg"),
+    title: "Spandan",
+    description: "(╯°□°)╯︵ ┻━┻",
+    image: require("../assets/spandan.jpg"),
+  },
+  {
+    id: 6,
+    title: "Siddhartha",
+    description: "..",
+    image: require("../assets/sid.jpg"),
   },
 ];
 
 function MessagesScreen(props) {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = (message) => {
+    // Delete the message from messages
+    const newMessages = messages.filter((m) => m.id !== message.id);
+    setMessages(newMessages);
+    // Call the server
+  };
   return (
     <Screen>
       <FlatList
@@ -54,11 +69,46 @@ function MessagesScreen(props) {
             image={item.image}
             onPress={() => console.log("helloe", item)}
             renderRightActions={() => (
-              <ListItemDeleteAction onPress={() => console.log(item)} />
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "Baivab",
+              description: "Building DevDotCom👷",
+              image: require("../assets/baivab.jpg"),
+            },
+            {
+              id: 3,
+              title: "Subhadip",
+              description: "I'm a Game Developer, I build games (disasters)",
+              image: require("../assets/subh.jpg"),
+            },
+            {
+              id: 4,
+              title: "Subinoy",
+              description: "Develops bugs, squashes features",
+              image: require("../assets/subinoy.jpg"),
+            },
+            {
+              id: 5,
+              title: "Spandan",
+              description: "(╯°□°)╯︵ ┻━┻",
+              image: require("../assets/spandan.jpg"),
+            },
+            {
+              id: 6,
+              title: "Siddhartha",
+              description: "..",
+              image: require("../assets/sid.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
