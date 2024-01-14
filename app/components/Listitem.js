@@ -11,6 +11,7 @@ import AppText from "./AppText";
 import colors from "../config/colors";
 import { Swipeable } from "react-native-gesture-handler";
 import ListItemDeleteAction from "./ListItemDeleteAction";
+import Icon from "./Icon";
 
 function Listitem({
   title,
@@ -39,21 +40,24 @@ function Listitem({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    paddingTop: 15,
+    padding: 15,
+    allignItems: "center",
+    backgroundColor: colors.white,
   },
   image: {
     width: 70,
     height: 70,
-    borderRadius: 35,
+    borderRadius: 50,
     marginRight: 10,
-    marginLeft: 10,
   },
   subTitle: {
     color: colors.medium,
     fontSize: 12,
   },
   title: {
+    paddingTop: 7,
     fontWeight: "600",
+    fontSize: 16,
   },
 });
 

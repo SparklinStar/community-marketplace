@@ -2,8 +2,8 @@ import React from "react";
 
 import { StatusBar, StyleSheet, View } from "react-native";
 
-function Screen({ children }) {
-  return <View style={styles.screen}>{children}</View>;
+function Screen({ children, style }) {
+  return <View style={[styles.screen, style]}>{children}</View>;
 }
 
 const styles = StyleSheet.create({

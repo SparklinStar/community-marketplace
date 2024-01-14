@@ -49,7 +49,7 @@ const initialMessages = [
 
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(initialMessages);
-  const [refreshing, setRefreshing] = useState(false);
+  const [refreshing] = useState(false);
 
   const handleDelete = (message) => {
     // Delete the message from messages
